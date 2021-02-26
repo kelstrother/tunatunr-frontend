@@ -9,41 +9,43 @@ import Form from "./components/Form";
 function App() {
   // Url variable
   // const url = "https://tunatunr.herokuapp.com";
-  const url = "https://tuna-tunr-api.herokuapp.com";
+  const url = "https://ks-tunatunr.herokuapp.com";
 
   // State that hold the songs
   const [songs, setSongs] = React.useState([]);
 
   // Empty API
   const emptySong = {
-    name: "",
+    title: "",
     artist: "",
     album: "",
+    favorite: false,
   };
 
   // Function to get list of songs
   const getSongs = () => {
-    axios.get(url + "/tunatunr").then((response) => {
+    axios.get(url + "/songs").then((response) => {
       setSongs(response.data);
     });
   };
 
   const handleCreate = (song) => {
-    axios.post(url + "/tunatunr", song).then(() => {
+    axios.post(url + "/songs", song).then(() => {
       getSongs();
     });
   };
 
   const handleFavorite = (song) => {
+    console.log(song)
     if (song.favorite) {
       axios
-        .put(url + "/tunatunr/id/" + song._id, { favorite: false })
+        .put(url + "/songs/" + song.id, { favorite: false })
         .then(() => {
           getSongs();
         });
     } else {
       axios
-        .put(url + "/tunatunr/id/" + song._id, { favorite: true })
+        .put(url + "/songs/" + song.id, { favorite: true })
         .then(() => {
           getSongs();
         });
@@ -51,7 +53,7 @@ function App() {
   };
 
   const handleDelete = (song) => {
-    axios.delete(url + "/tunatunr/id/" + song._id).then(() => {
+    axios.delete(url + "/songs/" + song.id).then(() => {
       getSongs();
     });
   };

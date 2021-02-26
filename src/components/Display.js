@@ -68,10 +68,10 @@ const Display = (props) => {
           {props.songs.map((song, index) => {
             return (
               <div className="song-container" key={index}>
-                <div className="song-title">{song.name}</div>
+                <div className="song-title">{song.title}</div>
                 <div className="song-artist">{song.artist}</div>
                 <div className="song-album">{song.album}</div>
-                <div className="song-time">{song.time}</div>
+                {/* <div className="song-time">{song.time}</div> */}
                 <GiTechnoHeart
                   className={`heart${song.favorite ? " active" : ""}`}
                   onClick={() => props.handleFavorite(song)}

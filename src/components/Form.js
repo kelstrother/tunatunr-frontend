@@ -26,7 +26,7 @@ const Form = (props) => {
           type="text"
           name="name"
           id="name"
-          value={formData.name}
+          value={formData.title}
           placeholder="song title"
           onChange={handleChange}
         />
@@ -46,14 +46,14 @@ const Form = (props) => {
           placeholder="album name"
           onChange={handleChange}
         />
-        <input
+        {/* <input
           type="text"
           name="time"
           id="length"
           value={formData.time}
           placeholder="song duration"
           onChange={handleChange}
-        />
+        /> */}
         <input className="form-submit" type="submit" value="Krillin' It" />
       </form>
     </div>

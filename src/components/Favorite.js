@@ -7,7 +7,7 @@ const Favorite = (props) => {
       return song.favorite;
     })
     .map((song, index) => {
-      return <div>{song.name}</div>;
+      return <div>{song.title}</div>;
     });
   console.log(filteredFavorite);
   return (
@@ -15,12 +15,13 @@ const Favorite = (props) => {
       <div className="inner-container">
         {props.songs
           .filter((song) => {
+            console.log('this is song', song)
             return song.favorite;
           })
           .map((song, index) => {
             return (
               <div className="song-container" key={index}>
-                <div className="song-title">{song.name}</div>
+                <div className="song-title">{song.title}</div>
                 <div className="song-artist">{song.artist}</div>
                 <div className="song-album">{song.album}</div>
               </div>
