@@ -7,7 +7,8 @@ import Form from "./components/Form";
 
 function App() {
   // Url variable
-  const url = "https://tunatunr.herokuapp.com";
+  // const url = "https://tunatunr.herokuapp.com";
+  const url = "https://tuna-tunr-api.herokuapp.com/";
 
   // States
   const [songs, setSongs] = React.useState([]);
@@ -16,9 +17,8 @@ function App() {
   // Empty API
   const emptySong = {
     name: "",
-    album: "",
     artist: "",
-    time: "",
+    album: "",
   };
 
   // Function to get list of songs
